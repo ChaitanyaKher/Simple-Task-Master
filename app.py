@@ -4,14 +4,14 @@ from datetime import datetime
 
 app=Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI']= 'sqlite:///test.db';
+app.config['SQLALCHEMY_DATABASE_URI']= 'sqlite:///test.db'
 db=SQLAlchemy(app)
 
 class Todo(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    content=db.Column(db.String(200), nullable=False)
-    completed=db.Column(db.Integer, default=0)
-    date_created = db.Column(db.DateTime, default=datetime.utcnow)
+    id = db.Column(db.Integer, primary_key=True)# pylint: disable=maybe-no-member
+    content=db.Column(db.String(200), nullable=False)# pylint: disable=maybe-no-member
+    completed=db.Column(db.Integer, default=0)# pylint: disable=maybe-no-member
+    date_created = db.Column(db.DateTime, default=datetime.utcnow)# pylint: disable=maybe-no-member
 
 def __repr__(self):
     return '<Task %r>' % self.id
